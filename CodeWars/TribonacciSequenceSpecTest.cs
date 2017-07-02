@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace TribonacciSequence
+namespace CodeWars
 {
     [TestClass]
-    public class SequenceSpecTest
+    public class TribonacciSequenceSpecTest
     {
         private Xbonacci variabonacci;
 
@@ -28,6 +29,12 @@ namespace TribonacciSequence
             variabonacci = new Xbonacci();
             CollectionAssert.AreEqual(new double[] { 1, 1, 1, 3, 5, 9, 17, 31, 57, 105, 193 }, variabonacci.Tribonacci(new double[] { 1, 1, 1 }, 11));
         }
+        [TestMethod]
+        public void WhenN_IsTwoReturnValidSequenceForAllSignatures()
+        {
+            variabonacci = new Xbonacci();
+            CollectionAssert.AreEqual(new double[] { 1, 1}, variabonacci.Tribonacci(new double[] { 1, 1 }, 2));
+        }
     }
     public class Xbonacci
     {
@@ -40,7 +47,7 @@ namespace TribonacciSequence
             {
                 sequence[i] = sequence[i - 1] + sequence[i - 2] + sequence[i - 3];
             }
-            return sequence;
+            return sequence.Take(n).ToArray();
 
         }
     }
