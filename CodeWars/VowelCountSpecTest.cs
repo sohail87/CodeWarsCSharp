@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CodeWars
@@ -14,7 +15,7 @@ namespace CodeWars
 
         private int VowelCount(string tomorrow)
         {
-            throw new NotImplementedException();
+            return tomorrow.Count(x => x == 'o');
         }
     }
 
