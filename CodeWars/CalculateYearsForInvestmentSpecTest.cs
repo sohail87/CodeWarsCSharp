@@ -21,7 +21,17 @@ namespace CodeWars
     {
         public static int CalculateYears(double principal, double interest, double tax, double desiredPrincipal)
         {
-            return 0;
+            var years = 0;
+            var newPrincipal = principal;
+            while (newPrincipal < desiredPrincipal)
+            {
+                years++;
+                var moneyGainedFromInterest = newPrincipal * interest;
+                var payableTaxOnInterest = moneyGainedFromInterest * tax;
+                var profit = moneyGainedFromInterest - payableTaxOnInterest;
+                newPrincipal += profit;
+            }
+            return years;
         }
     }
 }
