@@ -12,10 +12,21 @@ namespace CodeWars
         {
             Assert.AreEqual(3, VowelCount("Tomorrow"));
         }
-
-        private int VowelCount(string tomorrow)
+        [TestMethod]
+        public void GivenTomorrowNeverDiesTodayVowelCountIs9()
         {
-            return tomorrow.Count(x => x == 'o');
+            Assert.AreEqual(9, VowelCount("Tomorrow Never Dies Today"));
+        }
+        [TestMethod]
+        public void GivenAaEeIiOoUuVowelCountIs10()
+        {
+            Assert.AreEqual(10, VowelCount("zAzaz zEzez zIziz zOzoz zUzuz"));
+        }
+
+        private int VowelCount(string phrase)
+        {
+            var vowels = new[] {'a', 'e', 'i', 'o', 'u'};
+            return vowels.Select(v => phrase.Count(x => (x == char.ToLower(v) || x == char.ToUpper(v)))).Sum();
         }
     }
 
