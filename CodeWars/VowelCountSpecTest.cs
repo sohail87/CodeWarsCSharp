@@ -10,23 +10,30 @@ namespace CodeWars
         [TestMethod]
         public void GivenTomorrowVowelCountIs3()
         {
-            Assert.AreEqual(3, VowelCount("Tomorrow"));
+            var phrase = "Tomorrow";
+            Assert.AreEqual(3, phrase.CountVowels());
         }
         [TestMethod]
         public void GivenTomorrowNeverDiesTodayVowelCountIs9()
         {
-            Assert.AreEqual(9, VowelCount("Tomorrow Never Dies Today"));
+            var phrase = "Tomorrow Never Dies Today";
+            Assert.AreEqual(9, phrase.CountVowels());
         }
         [TestMethod]
         public void GivenAaEeIiOoUuVowelCountIs10()
         {
-            Assert.AreEqual(10, VowelCount("zAzaz zEzez zIziz zOzoz zUzuz"));
+            var phrase = "zAzaz zEzez zIziz zOzoz zUzuz";
+            Assert.AreEqual(10, phrase.CountVowels());
         }
 
-        private int VowelCount(string phrase)
+    }
+
+    public static class ExtensionMethods
+    {
+        public static int CountVowels(this string value)
         {
-            var vowels = new[] {'a', 'e', 'i', 'o', 'u'};
-            return vowels.Select(v => phrase.Count(x => (x == char.ToLower(v) || x == char.ToUpper(v)))).Sum();
+            var vowels = new[] { 'a', 'e', 'i', 'o', 'u' };
+            return vowels.Select(v => value.Count(x => (x == char.ToLower(v) || x == char.ToUpper(v)))).Sum();
         }
     }
 
