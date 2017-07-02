@@ -55,6 +55,7 @@
     <Compile Include="CalculateYearsForInvestmentSpecTest.cs" />
     <Compile Include="TribonacciSequenceSpecTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VowelCountSpecTest.cs" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
